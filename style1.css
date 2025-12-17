@@ -182,3 +182,89 @@ footer {
   font-size: 0.85rem;
   color: #94a3b8;
 }
+
+/* ===== RESPONSIVE ===== */
+
+/* ---------- TABLETS (≤ 900px) ---------- */
+@media (max-width: 900px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .container {
+    margin-top: -20px;
+  }
+}
+
+/* ---------- PHONES (≤ 600px) ---------- */
+@media (max-width: 600px) {
+  /* Header */
+  .header {
+    padding: 40px 15px;
+  }
+
+  .header-content {
+    gap: 15px;
+  }
+
+  .avatar {
+    width: 85px;
+    height: 85px;
+  }
+
+  /* Text scaling */
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .role {
+    font-size: 0.95rem;
+  }
+
+  .school {
+    font-size: 0.8rem;
+  }
+
+  /* Cards */
+  .card {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .card:hover {
+    transform: none; /* remove heavy hover on touch screens */
+  }
+
+  /* Skills */
+  .skills span {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 0.75rem;
+    padding: 20px;
+  }
+}
+
+/* ---------- VERY SMALL PHONES (≤ 380px) ---------- */
+@media (max-width: 380px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}
