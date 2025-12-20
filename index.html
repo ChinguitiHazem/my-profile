@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nursing Student Profile</title>
-  <link rel="stylesheet" href="style2.css">
+  <link id="themeStylesheet" rel="stylesheet" href="style2.css">
 </head>
 <body>
 
@@ -16,6 +15,7 @@
         <p class="role">Nursing Student</p>
         <p class="school">UPSAT</p>
       </div>
+      <button id="themeToggle" aria-pressed="false" title="Toggle theme">Toggle Theme</button>
     </div>
   </header>
 
@@ -69,7 +69,35 @@
     © 2025 Nursing Student Profile
   </footer>
 
+  <script>
+    (function () {
+      const link = document.getElementById('themeStylesheet');
+      const btn = document.getElementById('themeToggle');
+      const THEMES = {
+        light: 'style2.css',
+        dark: 'style1.css'
+      };
+
+      function applyTheme(name) {
+        if (!THEMES[name]) return;
+        link.href = THEMES[name];
+        btn.setAttribute('aria-pressed', name === 'light' ? 'true' : 'false');
+        btn.textContent = name === 'light' ? 'Light Theme' : 'Dark Theme';
+        localStorage.setItem('profile-theme', name);
+      }
+
+      // initialize
+      const saved = localStorage.getItem('profile-theme');
+      const defaultTheme = saved || 'light';
+      applyTheme(defaultTheme);
+
+      btn.addEventListener('click', function () {
+        const current = localStorage.getItem('profile-theme') || 'light';
+        const next = current === 'light' ? 'dark' : 'light';
+        applyTheme(next);
+      });
+    })();
+  </script>
+
 </body>
 </html>
-
-
