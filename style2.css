@@ -86,6 +86,25 @@ body::after {
   z-index: 1;
 }
 
+/* Theme toggle button (positioned at top-right of header) */
+#themeToggle {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 0;
+  background: rgba(255,255,255,0.12);
+  color: inherit;
+  cursor: pointer;
+  z-index: 2;
+  font-weight: 600;
+}
+
+#themeToggle:hover {
+  background: rgba(255,255,255,0.18);
+}
+
 .header-content {
   max-width: 1000px;
   margin: auto;
@@ -198,6 +217,13 @@ footer {
     height: 100px;
   }
 
+  /* move theme button below content on narrow screens */
+  #themeToggle {
+    position: static;
+    margin: 12px 0 0;
+    align-self: center;
+  }
+
   .container {
     margin-top: -20px;
   }
@@ -233,6 +259,11 @@ footer {
   .skills span {
     font-size: 0.8rem;
     padding: 6px 12px;
+  }
+
+  #themeToggle {
+    padding: 6px 10px;
+    border-radius: 6px;
   }
 }
 
