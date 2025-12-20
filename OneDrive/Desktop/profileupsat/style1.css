@@ -1,0 +1,306 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+/* ===== THEME VARIABLES ===== */
+:root {
+  --green-gradient: linear-gradient(135deg, #022c22, #064e3b, #0f766e);
+  --green-main: #0f766e;
+  --green-soft: #a7f3d0;
+}
+
+/* ===== BODY + SPACE BACKGROUND ===== */
+body {
+  background: radial-gradient(circle at top, #0a0f0d, #000);
+  color: #f5f5f5;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ===== DENSE STAR FIELD ===== */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  background-image:
+    radial-gradient(4px 4px at 10% 20%, #0f766e, transparent),
+    radial-gradient(4px 4px at 30% 70%, #064e3b, transparent),
+    radial-gradient(4px 4px at 50% 40%, #22c55e, transparent),
+    radial-gradient(4px 4px at 70% 10%, #0f766e, transparent),
+    radial-gradient(4px 4px at 10% 20%, #0f766e, transparent),
+    radial-gradient(4px 4px at 30% 70%, #064e3b, transparent),
+    radial-gradient(4px 4px at 50% 40%, #22c55e, transparent),
+    radial-gradient(4px 4px at 70% 10%, #0f766e, transparent),
+    radial-gradient(4px 4px at 10% 20%, #0f766e, transparent),
+    radial-gradient(4px 4px at 30% 70%, #064e3b, transparent),
+    radial-gradient(4px 4px at 50% 40%, #22c55e, transparent),
+    radial-gradient(4px 4px at 70% 10%, #0f766e, transparent),
+    radial-gradient(4px 4px at 90% 80%, #064e3b, transparent);
+  background-size: 200px 200px;
+  animation: starsUp 120s linear infinite;
+  opacity: 0.8;
+}
+
+body::after {
+  background-image:
+    radial-gradient(4px 2px at 20% 30%, #0f766e, transparent),
+    radial-gradient(4px 4px at 60% 60%, #22c55e, transparent),
+    radial-gradient(4px 4px at 10% 20%, #0f766e, transparent),
+    radial-gradient(4px 4px at 30% 70%, #064e3b, transparent),
+    radial-gradient(4px 4px at 50% 40%, #22c55e, transparent),
+    radial-gradient(4px 4px at 70% 10%, #0f766e, transparent),
+    radial-gradient(4px 4px at 10% 20%, #0f766e, transparent),
+    radial-gradient(4px 4px at 30% 70%, #064e3b, transparent),
+    radial-gradient(4px 4px at 50% 40%, #22c55e, transparent),
+    radial-gradient(4px 4px at 70% 10%, #0f766e, transparent),
+    radial-gradient(4px 4px at 80% 20%, #064e3b, transparent);
+  background-size: 400px 400px;
+  animation: starsDown 180s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes starsUp {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-1000px); }
+}
+
+@keyframes starsDown {
+  from { transform: translateY(0); }
+  to   { transform: translateY(800px); }
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: var(--green-gradient);
+  padding: 60px 20px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.header-content {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* allow the name block to take remaining space and shrink on small screens */
+.header-content > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Theme toggle button (positioned at top-right of header) */
+#themeToggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 0;
+  background: rgba(255,255,255,0.08);
+  color: inherit;
+  cursor: pointer;
+  z-index: 2;
+  font-weight: 600;
+}
+
+#themeToggle:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* ===== AVATAR ===== */
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 4px solid #022c22;
+  object-fit: cover;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(15, 118, 110, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(15, 118, 110, 0.9);
+  }
+}
+
+/* ===== TEXT ===== */
+.role {
+  font-weight: 600;
+}
+
+.school {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ===== MAIN LAYOUT ===== */
+.container {
+  max-width: 1000px;
+  margin: -40px auto 60px;
+  padding: 0 20px;
+  display: grid;
+  gap: 25px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: rgba(15, 23, 20, 0.88);
+  backdrop-filter: blur(12px);
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 25px 60px rgba(15, 118, 110, 0.35);
+}
+
+.card h2 {
+  background: var(--green-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+
+/* ===== SKILLS ===== */
+.skills span {
+  display: inline-block;
+  background: rgba(15, 118, 110, 0.15);
+  color: var(--green-soft);
+  padding: 8px 14px;
+  border-radius: 20px;
+  margin: 6px;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.skills span:hover {
+  background: var(--green-gradient);
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 25px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+/* ===== RESPONSIVE ===== */
+
+/* ---------- TABLETS (≤ 900px) ---------- */
+@media (max-width: 900px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .container {
+    margin-top: -20px;
+  }
+
+  /* move theme button below content on narrow screens */
+  #themeToggle {
+    position: static;
+    margin: 12px 0 0;
+    align-self: center;
+  }
+}
+
+/* ---------- PHONES (≤ 600px) ---------- */
+@media (max-width: 600px) {
+  /* Header */
+  .header {
+    padding: 40px 15px;
+  }
+
+  .header-content {
+    gap: 15px;
+  }
+
+  .avatar {
+    width: 85px;
+    height: 85px;
+  }
+
+  /* Text scaling */
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .role {
+    font-size: 0.95rem;
+  }
+
+  .school {
+    font-size: 0.8rem;
+  }
+
+  /* Cards */
+  .card {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .card:hover {
+    transform: none; /* remove heavy hover on touch screens */
+  }
+
+  /* Skills */
+  .skills span {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 0.75rem;
+    padding: 20px;
+  }
+
+  #themeToggle {
+    padding: 6px 10px;
+    border-radius: 6px;
+  }
+}
+
+/* ---------- VERY SMALL PHONES (≤ 380px) ---------- */
+@media (max-width: 380px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}
