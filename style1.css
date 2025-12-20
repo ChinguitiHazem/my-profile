@@ -95,6 +95,25 @@ body::after {
   gap: 25px;
 }
 
+/* Theme toggle button (positioned at top-right of header) */
+#themeToggle {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 0;
+  background: rgba(255,255,255,0.08);
+  color: inherit;
+  cursor: pointer;
+  z-index: 2;
+  font-weight: 600;
+}
+
+#themeToggle:hover {
+  background: rgba(255,255,255,0.12);
+}
+
 /* ===== AVATAR ===== */
 .avatar {
   width: 110px;
@@ -171,7 +190,7 @@ body::after {
 
 .skills span:hover {
   background: var(--green-gradient);
-  color: #022c22;
+  color: #ffffff;
   transform: translateY(-3px);
 }
 
@@ -182,7 +201,6 @@ footer {
   font-size: 0.85rem;
   color: #94a3b8;
 }
-
 /* ===== RESPONSIVE ===== */
 
 /* ---------- TABLETS (≤ 900px) ---------- */
@@ -199,6 +217,13 @@ footer {
 
   .container {
     margin-top: -20px;
+  }
+
+  /* move theme button below content on narrow screens */
+  #themeToggle {
+    position: static;
+    margin: 12px 0 0;
+    align-self: center;
   }
 }
 
@@ -255,6 +280,11 @@ footer {
   footer {
     font-size: 0.75rem;
     padding: 20px;
+  }
+
+  #themeToggle {
+    padding: 6px 10px;
+    border-radius: 6px;
   }
 }
 
